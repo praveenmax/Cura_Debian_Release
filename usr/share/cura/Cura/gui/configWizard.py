@@ -414,12 +414,20 @@ class MachineSelectPage(InfoPage):
 	def __init__(self, parent):
 		super(MachineSelectPage, self).__init__(parent, _("Select your machine"))
 		self.AddText(_("What kind of machine do you have:"))
+		
+		#Custom machines radiobts
+		self.ReddFabX1 = self.AddRadioButton("FabX 1", style=wx.RB_GROUP)
+		self.ReddFabX1.SetValue(True)
+		self.ReddFabX1.Bind(wx.EVT_RADIOBUTTON, self.OnReddFabX1Select)
 
-		self.Ultimaker2PlusRadio = self.AddRadioButton("Ultimaker 2+", style=wx.RB_GROUP)
-		self.Ultimaker2PlusRadio.SetValue(True)
+		#Default machines
+		self.Ultimaker2PlusRadio = self.AddRadioButton("Ultimaker 2+")
+		self.Ultimaker2PlusRadio.SetValue(False)
 		self.Ultimaker2PlusRadio.Bind(wx.EVT_RADIOBUTTON, self.OnUltimaker2Select)
+		
 		self.Ultimaker2PlusExtRadio = self.AddRadioButton("Ultimaker 2 Extended+")
 		self.Ultimaker2PlusExtRadio.Bind(wx.EVT_RADIOBUTTON, self.OnUltimaker2Select)
+		
 		self.Ultimaker2Radio = self.AddRadioButton("Ultimaker 2")
 		self.Ultimaker2Radio.Bind(wx.EVT_RADIOBUTTON, self.OnUltimaker2Select)
 		self.Ultimaker2ExtRadio = self.AddRadioButton("Ultimaker 2 Extended")
@@ -438,13 +446,15 @@ class MachineSelectPage(InfoPage):
 		self.LulzbotMiniRadio.Bind(wx.EVT_RADIOBUTTON, self.OnLulzbotSelect)
 		self.OtherRadio = self.AddRadioButton(_("Other (Ex: RepRap, MakerBot, Witbox)"))
 		self.OtherRadio.Bind(wx.EVT_RADIOBUTTON, self.OnOtherSelect)
+		
 		self.AddSeperator()
 		self.AddText(_("The collection of anonymous usage information helps with the continued improvement of Cura."))
 		self.AddText(_("This does NOT submit your models online nor gathers any privacy related information."))
 		self.SubmitUserStats = self.AddCheckbox(_("Submit anonymous usage information:"))
 		self.AddText(_("For full details see: http://wiki.ultimaker.com/Cura:stats"))
-		self.SubmitUserStats.SetValue(True)
+		self.SubmitUserStats.SetValue(false)
 
+	#Default machines methods
 	def OnUltimaker2Select(self, e):
 		wx.wizard.WizardPageSimple.Chain(self, self.GetParent().ultimaker2ReadyPage)
 
@@ -463,10 +473,15 @@ class MachineSelectPage(InfoPage):
 	def OnOtherSelect(self, e):
 		wx.wizard.WizardPageSimple.Chain(self, self.GetParent().otherMachineSelectPage)
 
+	#Custom Machine method
+	def OnReddFabX1Select(self, e):
+		wx.wizard.WizardPageSimple.Chain(self, self.GetParent().reddfabx1ReadyPage)
+	
 	def AllowNext(self):
 		wx.wizard.WizardPageSimple.Chain(self, self.GetParent().ultimaker2ReadyPage)
 		return True
-
+		
+	#Called when moving to next page.
 	def StoreData(self):
 		profile.putProfileSetting('retraction_enable', 'True')
 		if self.Ultimaker2Radio.GetValue() or self.Ultimaker2GoRadio.GetValue() or self.Ultimaker2ExtRadio.GetValue() or self.Ultimaker2PlusRadio.GetValue() or self.Ultimaker2PlusExtRadio.GetValue():
@@ -1044,6 +1059,22 @@ class Ultimaker2ReadyPage(InfoPage):
 	def OnUpgradeClick(self, e):
 		firmwareInstall.InstallFirmware()
 
+#Custom machine (adopted from class Ultimaker2ReadyPage)
+class ReddFabX1ReadyPage(InfoPage):
+	def __init__(self, parent):
+		super(ReddFabX1ReadyPage, self).__init__(parent, _("REDD FabX 1"))
+		self.AddText(_('Congratulations on your the purchase of your brand new FabX 1.'))
+		self.AddText(_('Cura is now ready to be used with your FabX 1.'))
+		self.AddSeperator()
+
+		self.AddText(_("Firmware is the piece of software running directly on your 3D printer.\nThis firmware controls the step motors, regulates the temperature\nand ultimately makes your printer work."))
+		self.AddHiddenSeperator()
+		self.AddText(_("For the best experience it is recommended to update your firmware right now."))
+		upgradeButton = self.AddButton('Upgrade firmware')
+		upgradeButton.Bind(wx.EVT_BUTTON, self.OnUpgradeClick)
+
+	def OnUpgradeClick(self, e):
+		firmwareInstall.InstallFirmware()
 
 class LulzbotReadyPage(InfoPage):
 	def __init__(self, parent):
@@ -1078,6 +1109,7 @@ class ConfigWizard(wx.wizard.Wizard):
 		self.otherMachineInfoPage = OtherMachineInfoPage(self)
 
 		self.ultimaker2ReadyPage = Ultimaker2ReadyPage(self)
+		self.reddfabx1ReadyPage = ReddFabX1ReadyPage(self) #Custom Machine ReadyPage
 		self.lulzbotReadyPage = LulzbotReadyPage(self)
 
 		wx.wizard.WizardPageSimple.Chain(self.firstInfoPage, self.machineSelectPage)
