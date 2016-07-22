@@ -1082,6 +1082,7 @@ class LulzbotReadyPage(InfoPage):
 		self.AddText(_('Cura is now ready to be used with your Lulzbot.'))
 		self.AddSeperator()
 
+#Start?
 class ConfigWizard(wx.wizard.Wizard):
 	def __init__(self, addNew = False):
 		super(ConfigWizard, self).__init__(None, -1, _("Configuration Wizard"))
