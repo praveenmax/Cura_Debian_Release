@@ -422,14 +422,16 @@ class MachineSelectPage(InfoPage):
 
 		#Default machines
 		self.Ultimaker2PlusRadio = self.AddRadioButton("Ultimaker 2+")
-		self.Ultimaker2PlusRadio.SetValue(False)
 		self.Ultimaker2PlusRadio.Bind(wx.EVT_RADIOBUTTON, self.OnUltimaker2Select)
-		
+		#self.Ultimaker2PlusRadio.Show(False);
+
+		'''
 		self.Ultimaker2PlusExtRadio = self.AddRadioButton("Ultimaker 2 Extended+")
 		self.Ultimaker2PlusExtRadio.Bind(wx.EVT_RADIOBUTTON, self.OnUltimaker2Select)
 		
 		self.Ultimaker2Radio = self.AddRadioButton("Ultimaker 2")
 		self.Ultimaker2Radio.Bind(wx.EVT_RADIOBUTTON, self.OnUltimaker2Select)
+
 		self.Ultimaker2ExtRadio = self.AddRadioButton("Ultimaker 2 Extended")
 		self.Ultimaker2ExtRadio.Bind(wx.EVT_RADIOBUTTON, self.OnUltimaker2Select)
 		self.Ultimaker2GoRadio = self.AddRadioButton("Ultimaker 2 Go")
@@ -446,7 +448,8 @@ class MachineSelectPage(InfoPage):
 		self.LulzbotMiniRadio.Bind(wx.EVT_RADIOBUTTON, self.OnLulzbotSelect)
 		self.OtherRadio = self.AddRadioButton(_("Other (Ex: RepRap, MakerBot, Witbox)"))
 		self.OtherRadio.Bind(wx.EVT_RADIOBUTTON, self.OnOtherSelect)
-		
+		'''
+
 		self.AddSeperator()
 		self.AddText(_("The collection of anonymous usage information helps with the continued improvement of Cura."))
 		self.AddText(_("This does NOT submit your models online nor gathers any privacy related information."))
@@ -458,62 +461,27 @@ class MachineSelectPage(InfoPage):
 	def OnUltimaker2Select(self, e):
 		wx.wizard.WizardPageSimple.Chain(self, self.GetParent().ultimaker2ReadyPage)
 
-	def OnUltimakerSelect(self, e):
-		wx.wizard.WizardPageSimple.Chain(self, self.GetParent().ultimakerSelectParts)
-
-	def OnUltimakerOPSelect(self, e):
-		wx.wizard.WizardPageSimple.Chain(self, self.GetParent().ultimakerFirmwareUpgradePage)
-
-	def OnPrintrbotSelect(self, e):
-		wx.wizard.WizardPageSimple.Chain(self, self.GetParent().printrbotSelectType)
-
-	def OnLulzbotSelect(self, e):
-		wx.wizard.WizardPageSimple.Chain(self, self.GetParent().lulzbotReadyPage)
-
-	def OnOtherSelect(self, e):
-		wx.wizard.WizardPageSimple.Chain(self, self.GetParent().otherMachineSelectPage)
-
 	#Custom Machine method
 	def OnReddFabX1Select(self, e):
 		wx.wizard.WizardPageSimple.Chain(self, self.GetParent().reddfabx1ReadyPage)
-	
+
+	# Called after selecting next button
 	def AllowNext(self):
-		wx.wizard.WizardPageSimple.Chain(self, self.GetParent().ultimaker2ReadyPage)
+		wx.wizard.WizardPageSimple.Chain(self, self.GetParent().reddfabx1ReadyPage)
 		return True
 		
 	#Called when moving to next page.
 	def StoreData(self):
 		profile.putProfileSetting('retraction_enable', 'True')
-		if self.Ultimaker2Radio.GetValue() or self.Ultimaker2GoRadio.GetValue() or self.Ultimaker2ExtRadio.GetValue() or self.Ultimaker2PlusRadio.GetValue() or self.Ultimaker2PlusExtRadio.GetValue():
-			if self.Ultimaker2Radio.GetValue() or self.Ultimaker2PlusRadio.GetValue():
+		if self.Ultimaker2PlusRadio.GetValue():
+			if self.Ultimaker2PlusRadio.GetValue():
 				profile.putMachineSetting('machine_width', '223')
 				profile.putMachineSetting('machine_depth', '223')
 				profile.putMachineSetting('machine_height', '205')
 				if self.Ultimaker2PlusRadio.GetValue():
 					profile.putMachineSetting('machine_name', 'Ultimaker 2+')
 					profile.putMachineSetting('machine_type', 'ultimaker2+')
-				else:
-					profile.putMachineSetting('machine_name', 'Ultimaker 2')
-					profile.putMachineSetting('machine_type', 'ultimaker2')
 				profile.putMachineSetting('has_heated_bed', 'True')
-			if self.Ultimaker2ExtRadio.GetValue() or self.Ultimaker2PlusExtRadio.GetValue():
-				profile.putMachineSetting('machine_width', '223')
-				profile.putMachineSetting('machine_depth', '223')
-				profile.putMachineSetting('machine_height', '305')
-				if self.Ultimaker2PlusExtRadio.GetValue():
-					profile.putMachineSetting('machine_name', 'Ultimaker 2 Extended+')
-					profile.putMachineSetting('machine_type', 'ultimaker2+extended')
-				else:
-					profile.putMachineSetting('machine_name', 'Ultimaker 2 Extended')
-					profile.putMachineSetting('machine_type', 'ultimaker2extended')
-				profile.putMachineSetting('has_heated_bed', 'False')
-			if self.Ultimaker2GoRadio.GetValue():
-				profile.putMachineSetting('machine_width', '120')
-				profile.putMachineSetting('machine_depth', '120')
-				profile.putMachineSetting('machine_height', '115')
-				profile.putMachineSetting('machine_name', 'Ultimaker 2 Go')
-				profile.putMachineSetting('machine_type', 'ultimaker2go')
-				profile.putMachineSetting('has_heated_bed', 'False')
 			profile.putMachineSetting('machine_center_is_zero', 'False')
 			profile.putMachineSetting('gcode_flavor', 'UltiGCode')
 			profile.putMachineSetting('extruder_head_size_min_x', '42.0')
@@ -525,50 +493,6 @@ class MachineSelectPage(InfoPage):
 			profile.putProfileSetting('fan_full_height', '5.0')
 			profile.putMachineSetting('extruder_offset_x1', '18.0')
 			profile.putMachineSetting('extruder_offset_y1', '0.0')
-		elif self.UltimakerRadio.GetValue():
-			profile.putMachineSetting('machine_width', '205')
-			profile.putMachineSetting('machine_depth', '205')
-			profile.putMachineSetting('machine_height', '200')
-			profile.putMachineSetting('machine_name', 'Ultimaker Original')
-			profile.putMachineSetting('machine_type', 'ultimaker')
-			profile.putMachineSetting('machine_center_is_zero', 'False')
-			profile.putMachineSetting('gcode_flavor', 'RepRap (Marlin/Sprinter)')
-			profile.putProfileSetting('nozzle_size', '0.4')
-			profile.putMachineSetting('extruder_head_size_min_x', '75.0')
-			profile.putMachineSetting('extruder_head_size_min_y', '18.0')
-			profile.putMachineSetting('extruder_head_size_max_x', '18.0')
-			profile.putMachineSetting('extruder_head_size_max_y', '35.0')
-			profile.putMachineSetting('extruder_head_size_height', '55.0')
-		elif self.UltimakerOPRadio.GetValue():
-			profile.putMachineSetting('machine_width', '205')
-			profile.putMachineSetting('machine_depth', '205')
-			profile.putMachineSetting('machine_height', '200')
-			profile.putMachineSetting('machine_name', 'Ultimaker Original+')
-			profile.putMachineSetting('machine_type', 'ultimaker_plus')
-			profile.putMachineSetting('machine_center_is_zero', 'False')
-			profile.putMachineSetting('gcode_flavor', 'RepRap (Marlin/Sprinter)')
-			profile.putProfileSetting('nozzle_size', '0.4')
-			profile.putMachineSetting('extruder_head_size_min_x', '75.0')
-			profile.putMachineSetting('extruder_head_size_min_y', '18.0')
-			profile.putMachineSetting('extruder_head_size_max_x', '18.0')
-			profile.putMachineSetting('extruder_head_size_max_y', '35.0')
-			profile.putMachineSetting('extruder_head_size_height', '55.0')
-			profile.putMachineSetting('has_heated_bed', 'True')
-			profile.putMachineSetting('extruder_amount', '1')
-			profile.putProfileSetting('retraction_enable', 'True')
-		elif self.LulzbotTazRadio.GetValue() or self.LulzbotMiniRadio.GetValue():
-			if self.LulzbotTazRadio.GetValue():
-				profile.putMachineSetting('machine_width', '298')
-				profile.putMachineSetting('machine_depth', '275')
-				profile.putMachineSetting('machine_height', '250')
-				profile.putProfileSetting('nozzle_size', '0.35')
-				profile.putMachineSetting('machine_name', 'Lulzbot TAZ')
-			else:
-				profile.putMachineSetting('machine_width', '160')
-				profile.putMachineSetting('machine_depth', '160')
-				profile.putMachineSetting('machine_height', '160')
-				profile.putProfileSetting('nozzle_size', '0.5')
-				profile.putMachineSetting('machine_name', 'Lulzbot Mini')
 			profile.putMachineSetting('machine_type', 'Aleph Objects')
 			profile.putMachineSetting('machine_center_is_zero', 'False')
 			profile.putMachineSetting('gcode_flavor', 'RepRap (Marlin/Sprinter)')
@@ -578,15 +502,6 @@ class MachineSelectPage(InfoPage):
 			profile.putMachineSetting('extruder_head_size_max_x', '0.0')
 			profile.putMachineSetting('extruder_head_size_max_y', '0.0')
 			profile.putMachineSetting('extruder_head_size_height', '0.0')
-		else:
-			profile.putMachineSetting('machine_width', '80')
-			profile.putMachineSetting('machine_depth', '80')
-			profile.putMachineSetting('machine_height', '60')
-			profile.putMachineSetting('machine_name', 'reprap')
-			profile.putMachineSetting('machine_type', 'reprap')
-			profile.putMachineSetting('gcode_flavor', 'RepRap (Marlin/Sprinter)')
-			profile.putPreference('startMode', 'Normal')
-			profile.putProfileSetting('nozzle_size', '0.5')
 		profile.checkAndUpdateMachineName()
 		profile.putProfileSetting('wall_thickness', float(profile.getProfileSetting('nozzle_size')) * 2)
 		if self.SubmitUserStats.GetValue():
@@ -1062,8 +977,8 @@ class Ultimaker2ReadyPage(InfoPage):
 #Custom machine (adopted from class Ultimaker2ReadyPage)
 class ReddFabX1ReadyPage(InfoPage):
 	def __init__(self, parent):
-		super(ReddFabX1ReadyPage, self).__init__(parent, _("REDD FabX 1"))
-		self.AddText(_('Congratulations on your the purchase of your brand new FabX 1.'))
+		super(ReddFabX1ReadyPage, self).__init__(parent, _("REDD FabX"))
+		self.AddText(_('Congratulations on your the purchase of your brand new FabX.'))
 		self.AddText(_('Cura is now ready to be used with your FabX 1.'))
 		self.AddSeperator()
 
