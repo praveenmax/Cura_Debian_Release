@@ -343,28 +343,30 @@ M117 Printing...
 
 class OtherMachineSelectPage(InfoPage):
 	def __init__(self, parent):
-		super(OtherMachineSelectPage, self).__init__(parent, _("Other machine information"))
-		self.AddText(_("The following pre-defined machine profiles are available"))
-		self.AddText(_("Note that these profiles are not guaranteed to give good results,\nor work at all. Extra tweaks might be required.\nIf you find issues with the predefined profiles,\nor want an extra profile.\nPlease report it at the github issue tracker."))
+		super(OtherMachineSelectPage, self).__init__(parent, _("Select a REDD printer"))
+		self.AddText(_("Please select the appropriate REDD printer"))
+		#self.AddText(_("Note that these profiles are not guaranteed to give good results,\nor work at all. Extra tweaks might be required.\nIf you find issues with the predefined profiles,\nor want an extra profile.\nPlease report it at the github issue tracker."))
 		self.options = []
 		machines = resources.getDefaultMachineProfiles()
 		machines.sort()
 		for filename in machines:
 			name = os.path.splitext(os.path.basename(filename))[0]
 			item = self.AddRadioButton(name)
+			item.SetValue(False)
 			item.filename = filename
 			item.Bind(wx.EVT_RADIOBUTTON, self.OnProfileSelect)
 			self.options.append(item)
 		self.AddSeperator()
-		item = self.AddRadioButton(_('Custom...'))
-		item.SetValue(True)
-		item.Bind(wx.EVT_RADIOBUTTON, self.OnOtherSelect)
+
+		#item = self.AddRadioButton(_('Custom...'))
+		#item.SetValue(True)
+		#item.Bind(wx.EVT_RADIOBUTTON, self.OnOtherSelect)
 
 	def OnProfileSelect(self, e):
 		wx.wizard.WizardPageSimple.Chain(self, self.GetParent().otherMachineInfoPage)
 
-	def OnOtherSelect(self, e):
-		wx.wizard.WizardPageSimple.Chain(self, self.GetParent().customRepRapInfoPage)
+	#def OnOtherSelect(self, e):
+		#wx.wizard.WizardPageSimple.Chain(self, self.GetParent().customRepRapInfoPage)
 
 	def StoreData(self):
 		for option in self.options:
@@ -446,9 +448,10 @@ class MachineSelectPage(InfoPage):
 		self.LulzbotTazRadio.Bind(wx.EVT_RADIOBUTTON, self.OnLulzbotSelect)
 		self.LulzbotMiniRadio = self.AddRadioButton("Lulzbot Mini")
 		self.LulzbotMiniRadio.Bind(wx.EVT_RADIOBUTTON, self.OnLulzbotSelect)
+		'''
 		self.OtherRadio = self.AddRadioButton(_("Other (Ex: RepRap, MakerBot, Witbox)"))
 		self.OtherRadio.Bind(wx.EVT_RADIOBUTTON, self.OnOtherSelect)
-		'''
+
 
 		self.AddSeperator()
 		self.AddText(_("The collection of anonymous usage information helps with the continued improvement of Cura."))
@@ -456,6 +459,10 @@ class MachineSelectPage(InfoPage):
 		self.SubmitUserStats = self.AddCheckbox(_("Submit anonymous usage information:"))
 		self.AddText(_("For full details see: http://wiki.ultimaker.com/Cura:stats"))
 		self.SubmitUserStats.SetValue(False)
+
+	#Other Machines
+	def OnOtherSelect(self, e):
+		wx.wizard.WizardPageSimple.Chain(self, self.GetParent().otherMachineSelectPage)
 
 	#Default machines methods
 	def OnUltimaker2Select(self, e):
@@ -1028,7 +1035,7 @@ class ConfigWizard(wx.wizard.Wizard):
 		self.reddfabx1ReadyPage = ReddFabX1ReadyPage(self) #Custom Machine ReadyPage
 		self.lulzbotReadyPage = LulzbotReadyPage(self)
 
-		wx.wizard.WizardPageSimple.Chain(self.firstInfoPage, self.machineSelectPage)
+		wx.wizard.WizardPageSimple.Chain(self.firstInfoPage, self.otherMachineSelectPage)
 		#wx.wizard.WizardPageSimple.Chain(self.machineSelectPage, self.ultimaker2ReadyPage)
 		wx.wizard.WizardPageSimple.Chain(self.machineSelectPage, self.ultimakerSelectParts)
 		wx.wizard.WizardPageSimple.Chain(self.ultimakerSelectParts, self.ultimakerFirmwareUpgradePage)
@@ -1036,7 +1043,7 @@ class ConfigWizard(wx.wizard.Wizard):
 		wx.wizard.WizardPageSimple.Chain(self.ultimakerCheckupPage, self.bedLevelPage)
 		#wx.wizard.WizardPageSimple.Chain(self.ultimakerCalibrationPage, self.ultimakerCalibrateStepsPerEPage)
 		wx.wizard.WizardPageSimple.Chain(self.printrbotSelectType, self.otherMachineInfoPage)
-		wx.wizard.WizardPageSimple.Chain(self.otherMachineSelectPage, self.customRepRapInfoPage)
+		wx.wizard.WizardPageSimple.Chain(self.otherMachineSelectPage, self.otherMachineInfoPage)
 
 		self.FitToPage(self.firstInfoPage)
 		self.GetPageAreaSizer().Add(self.firstInfoPage)
