@@ -33,7 +33,7 @@ except:
 
 class mainWindow(wx.Frame):
 	def __init__(self):
-		super(mainWindow, self).__init__(None, title='Cura - ' + version.getVersion())
+		super(mainWindow, self).__init__(None, title='Cura 3Ding Edition'))
 
 		wx.EVT_CLOSE(self, self.OnClose)
 
@@ -195,8 +195,8 @@ class mainWindow(wx.Frame):
 		self.Bind(wx.EVT_MENU, lambda e: webbrowser.open('http://daid.github.com/Cura'), i)
 		i = helpMenu.Append(-1, _("Report a problem..."))
 		self.Bind(wx.EVT_MENU, lambda e: webbrowser.open('https://github.com/daid/Cura/issues'), i)
-		i = helpMenu.Append(-1, _("Check for update..."))
-		self.Bind(wx.EVT_MENU, self.OnCheckForUpdate, i)
+		#i = helpMenu.Append(-1, _("Check for update..."))
+		#self.Bind(wx.EVT_MENU, self.OnCheckForUpdate, i)
 		i = helpMenu.Append(-1, _("Open YouMagine website..."))
 		self.Bind(wx.EVT_MENU, lambda e: webbrowser.open('https://www.youmagine.com/'), i)
 		i = helpMenu.Append(-1, _("About Cura..."))
@@ -649,7 +649,7 @@ class mainWindow(wx.Frame):
 				wx.TheClipboard.Close()
 		except:
 			print "Could not write to clipboard, unable to get ownership. Another program is using the clipboard."
-
+	'''
 	def OnCheckForUpdate(self, e):
 		newVersion = version.checkForNewerVersion()
 		if newVersion is not None:
@@ -657,6 +657,7 @@ class mainWindow(wx.Frame):
 				webbrowser.open(newVersion)
 		else:
 			wx.MessageBox(_("You are running the latest version of Cura!"), _("Awesome!"), wx.ICON_INFORMATION)
+	'''
 
 	def OnAbout(self, e):
 		aboutBox = aboutWindow.aboutWindow()
