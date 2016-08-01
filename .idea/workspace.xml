@@ -5,29 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9cc684d-7302-445f-8a94-4b62d2a11202" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/BFB.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/DeltaBot.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/Hephestos.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/Hephestos_XL.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/Kupido.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/MakerBotReplicator.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/Mendel.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/Ord.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/Prusa Mendel i3.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/RIGID3D HOBBY.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/ROBO 3D R1.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/Rigid3D.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/Rigid3d_Zero.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/RigidBot.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/RigidBotBig.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/Witbox.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/Zone3d Printer.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/julia.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/punchtec Connect XL.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/usr/share/cura/resources/machine_profiles/rigid3d_3rdGen.ini" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/usr/share/cura/Cura/gui/configWizard.py" afterPath="$PROJECT_DIR$/usr/share/cura/Cura/gui/configWizard.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/usr/share/cura/Cura/gui/mainWindow.py" afterPath="$PROJECT_DIR$/usr/share/cura/Cura/gui/mainWindow.py" />
     </list>
     <ignored path="Cura_Debian_Release.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,11 +27,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="configWizard.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="configWizard.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/usr/share/cura/Cura/gui/configWizard.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-663">
-              <caret line="378" column="0" selection-start-line="378" selection-start-column="0" selection-end-line="378" selection-end-column="0" />
+            <state relative-caret-position="9612">
+              <caret line="534" column="45" selection-start-line="534" selection-start-column="45" selection-end-line="534" selection-end-column="45" />
+              <folding>
+                <element signature="e#95#104#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mainWindow.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/usr/share/cura/Cura/gui/mainWindow.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+              <folding>
+                <element signature="e#95#104#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="aboutWindow.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/usr/share/cura/Cura/gui/aboutWindow.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="89">
+              <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
               <folding>
                 <element signature="e#95#104#0" expanded="true" />
               </folding>
@@ -76,13 +79,15 @@
       <list>
         <option value="$PROJECT_DIR$/usr/share/cura/Cura/util/profile.py" />
         <option value="$PROJECT_DIR$/usr/share/cura/Cura/gui/configWizard.py" />
+        <option value="$PROJECT_DIR$/usr/share/cura/Cura/gui/aboutWindow.py" />
+        <option value="$PROJECT_DIR$/usr/share/cura/Cura/gui/mainWindow.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="21" />
+    <option name="y" value="25" />
     <option name="width" value="1366" />
-    <option name="height" value="722" />
+    <option name="height" value="716" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -114,7 +119,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -127,13 +132,7 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane />
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/usr/share/cura/cura.py" />
@@ -329,7 +328,7 @@
   </component>
   <component name="StructureViewFactory">
     <option name="AUTOSCROLL_FROM_SOURCE" value="true" />
-    <option name="ACTIVE_ACTIONS" value=",SHOW_INHERITED" />
+    <option name="ACTIVE_ACTIONS" value=",SHOW_INHERITED,ALPHA_COMPARATOR,SHOW_FIELDS" />
   </component>
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
@@ -369,17 +368,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="21" width="1366" height="722" extended-state="0" />
+    <frame x="0" y="25" width="1366" height="716" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24981412" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928944" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.50292826" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22333333" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928944" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.325" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16398244" sideWeight="0.49393415" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40778342" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21771218" sideWeight="0.49393415" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928944" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2007435" sideWeight="0.50606585" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09166667" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -389,6 +387,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28596187" sideWeight="0.49707174" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22333333" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -426,7 +425,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed boolean error." />
     <MESSAGE value="Modified splash image." />
-    <option name="LAST_COMMIT_MESSAGE" value="Modified splash image." />
+    <MESSAGE value="Modified the main window's title text" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified the main window's title text" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -447,6 +447,16 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/usr/share/cura/Cura/gui/configWizard.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9612">
+          <caret line="534" column="45" selection-start-line="534" selection-start-column="45" selection-end-line="534" selection-end-column="45" />
+          <folding>
+            <element signature="e#95#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usr/share/cura/Cura/gui/mainWindow.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
@@ -455,27 +465,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/usr/share/cura/Cura/gui/preferencesDialog.py">
+    <entry file="file://$PROJECT_DIR$/usr/share/cura/Cura/gui/aboutWindow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3114">
-          <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="450">
+          <caret line="26" column="101" selection-start-line="26" selection-start-column="101" selection-end-line="26" selection-end-column="101" />
+          <folding>
+            <element signature="e#95#104#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/lib/python2.7/dist-packages/wx-3.0-gtk2/wx/wizard.py">
+    <entry file="file://$PROJECT_DIR$/usr/share/cura/Cura/gui/configWizard.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6732">
-          <caret line="375" column="0" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usr/share/cura/Cura/util/profile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19314">
-          <caret line="1073" column="4" selection-start-line="1073" selection-start-column="4" selection-end-line="1073" selection-end-column="4" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#95#104#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -493,7 +499,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3114">
           <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -501,7 +506,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6732">
           <caret line="375" column="0" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -509,7 +513,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19314">
           <caret line="1073" column="4" selection-start-line="1073" selection-start-column="4" selection-end-line="1073" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -527,7 +530,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3114">
           <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -535,7 +537,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6732">
           <caret line="375" column="0" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -543,7 +544,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19314">
           <caret line="1073" column="4" selection-start-line="1073" selection-start-column="4" selection-end-line="1073" selection-end-column="4" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usr/share/cura/Cura/gui/configWizard.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#95#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usr/share/cura/Cura/gui/preferencesDialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3114">
+          <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/dist-packages/wx-3.0-gtk2/wx/wizard.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6732">
+          <caret line="375" column="0" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usr/share/cura/Cura/util/profile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19314">
+          <caret line="1073" column="4" selection-start-line="1073" selection-start-column="4" selection-end-line="1073" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -635,14 +666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3114">
           <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usr/share/cura/Cura/gui/mainWindow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="465" column="0" selection-start-line="465" selection-start-column="0" selection-end-line="465" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -658,7 +681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6732">
           <caret line="375" column="0" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -666,14 +688,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19314">
           <caret line="1073" column="4" selection-start-line="1073" selection-start-column="4" selection-end-line="1073" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/usr/share/cura/Cura/gui/configWizard.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-663">
-          <caret line="378" column="0" selection-start-line="378" selection-start-column="0" selection-end-line="378" selection-end-column="0" />
+        <state relative-caret-position="9612">
+          <caret line="534" column="45" selection-start-line="534" selection-start-column="45" selection-end-line="534" selection-end-column="45" />
+          <folding>
+            <element signature="e#95#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usr/share/cura/Cura/gui/mainWindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#95#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usr/share/cura/Cura/gui/aboutWindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
           <folding>
             <element signature="e#95#104#0" expanded="true" />
           </folding>
