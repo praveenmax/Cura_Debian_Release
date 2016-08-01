@@ -1,0 +1,33 @@
+A	.gitignore
+A	.idea/Cura_Debian_Release.iml
+A	.idea/inspectionProfiles/Project_Default.xml
+A	.idea/inspectionProfiles/profiles_settings.xml
+A	.idea/misc.xml
+A	.idea/modules.xml
+A	.idea/vcs.xml
+A	.idea/workspace.xml
+M	usr/share/cura/Cura/gui/aboutWindow.py
+M	usr/share/cura/Cura/gui/configWizard.py
+M	usr/share/cura/Cura/gui/mainWindow.py
+M	usr/share/cura/resources/images/splash.png
+D	usr/share/cura/resources/machine_profiles/BFB.ini
+D	usr/share/cura/resources/machine_profiles/DeltaBot.ini
+A	usr/share/cura/resources/machine_profiles/FabX 1.ini
+D	usr/share/cura/resources/machine_profiles/Hephestos.ini
+D	usr/share/cura/resources/machine_profiles/Hephestos_XL.ini
+D	usr/share/cura/resources/machine_profiles/Kupido.ini
+D	usr/share/cura/resources/machine_profiles/MakerBotReplicator.ini
+D	usr/share/cura/resources/machine_profiles/Mendel.ini
+D	usr/share/cura/resources/machine_profiles/Ord.ini
+D	usr/share/cura/resources/machine_profiles/Prusa Mendel i3.ini
+D	usr/share/cura/resources/machine_profiles/RIGID3D HOBBY.ini
+D	usr/share/cura/resources/machine_profiles/ROBO 3D R1.ini
+D	usr/share/cura/resources/machine_profiles/Rigid3D.ini
+D	usr/share/cura/resources/machine_profiles/Rigid3d_Zero.ini
+D	usr/share/cura/resources/machine_profiles/RigidBot.ini
+D	usr/share/cura/resources/machine_profiles/RigidBotBig.ini
+D	usr/share/cura/resources/machine_profiles/Witbox.ini
+D	usr/share/cura/resources/machine_profiles/Zone3d Printer.ini
+D	usr/share/cura/resources/machine_profiles/julia.ini
+D	usr/share/cura/resources/machine_profiles/punchtec Connect XL.ini
+D	usr/share/cura/resources/machine_profiles/rigid3d_3rdGen.ini
