@@ -55,7 +55,7 @@ def getSimpleModeProfiles(machine_type):
 	"""
 	If there is 'redirect.ini', then goto the mentioned machinetype folder
 	for *.ini files.
-	Else, load the *.ini files from the current folder
+	Else, returns the *.ini files path list from the current folder
 	"""
 	path = os.path.normpath(os.path.join(resourceBasePath, 'quickprint', 'profiles', machine_type, '*.ini'))
 	if os.path.isfile(os.path.join(os.path.dirname(path), 'redirect.ini')):
