@@ -12,6 +12,7 @@ from optparse import OptionParser
 
 from Cura.util import profile
 
+
 def main():
 	"""
 	Main Cura entry point. Parses arguments, and starts GUI or slicing process depending on the arguments.
@@ -30,6 +31,7 @@ def main():
 	parser.add_option("--serialCommunication", action="store", type="string", dest="serialCommunication",
 		help="Start commandline serial monitor")
 
+	#Get the params from the commandline. This is tuple assignment
 	(options, args) = parser.parse_args()
 
 	if options.serialCommunication:
