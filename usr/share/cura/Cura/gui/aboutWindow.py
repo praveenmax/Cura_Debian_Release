@@ -25,6 +25,10 @@ class aboutWindow(wx.Frame):
 		s.Add(wx.StaticText(p, -1, 'End solution for Open Source Fused Filament Fabrication 3D printing.'))
 		s.Add(wx.StaticText(p, -1, 'Cura is currently developed and maintained by Ultimaker.'))
 		s.Add(wx.StaticText(p, -1, 'Cura 3Ding Edition has been modified and maintained by 3Ding for use with 3Ding 3D printers.'))
+		s.Add(wx.StaticText(p, -1, 'For more info, visit our website, '))
+		url = wx.HyperlinkCtrl(p, name='3Ding website', url='http://www.3ding.in')
+		url.Bind(wx.EVT_LEFT_UP, self.OnMouseEvent)
+		s.Add(url)
 
 		s.Add(wx.StaticText(p, -1, 'Cura is build with the following components:'), flag=wx.TOP, border=10)
 		self.addComponent('Cura', 'Graphical user interface', 'AGPLv3', 'https://github.com/daid/Cura')
@@ -56,6 +60,9 @@ class aboutWindow(wx.Frame):
 		s = p.GetSizer()
 		s.Add(wx.StaticText(p, -1, '* %s - %s' % (name, description)), flag=wx.TOP, border=5)
 		s.Add(wx.StaticText(p, -1, '   License: %s - Website: %s' % (license, url)))
+
+	def OnMouseEvent(self, e):
+		print "Left clicked on link"
 
 	def OnClose(self, e):
 		self.Destroy()
