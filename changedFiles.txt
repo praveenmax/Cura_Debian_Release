@@ -1,3 +1,4 @@
+Wed Aug 17 13:28:36 IST 2016
 A	.gitignore
 A	.idea/Cura_Debian_Release.iml
 A	.idea/encodings.xml
@@ -15,6 +16,7 @@ M	usr/share/cura/Cura/gui/app.py
 M	usr/share/cura/Cura/gui/configWizard.py
 A	usr/share/cura/Cura/gui/contactSupportWindow.py
 M	usr/share/cura/Cura/gui/mainWindow.py
+M	usr/share/cura/Cura/gui/preferencesDialog.py
 M	usr/share/cura/Cura/gui/simpleMode.py
 M	usr/share/cura/Cura/util/profile.py
 M	usr/share/cura/Cura/util/resources.py
@@ -22,6 +24,7 @@ M	usr/share/cura/Cura/util/version.py
 M	usr/share/cura/resources/images/splash.png
 D	usr/share/cura/resources/machine_profiles/BFB.ini
 D	usr/share/cura/resources/machine_profiles/DeltaBot.ini
+A	usr/share/cura/resources/machine_profiles/FabX 3.ini
 A	usr/share/cura/resources/machine_profiles/FabX Pro.ini
 D	usr/share/cura/resources/machine_profiles/Hephestos.ini
 D	usr/share/cura/resources/machine_profiles/Hephestos_XL.ini
@@ -45,6 +48,18 @@ D	usr/share/cura/resources/quickprint/profiles/1_low.ini
 D	usr/share/cura/resources/quickprint/profiles/2_normal.ini
 D	usr/share/cura/resources/quickprint/profiles/3_high.ini
 D	usr/share/cura/resources/quickprint/profiles/4_ulti.ini
+A	usr/share/cura/resources/quickprint/profiles/fabx3/glass_high.ini
+A	usr/share/cura/resources/quickprint/profiles/fabx3/glass_low.ini
+A	usr/share/cura/resources/quickprint/profiles/fabx3/glass_normal.ini
+A	usr/share/cura/resources/quickprint/profiles/fabx3/metal_high.ini
+A	usr/share/cura/resources/quickprint/profiles/fabx3/metal_low.ini
+A	usr/share/cura/resources/quickprint/profiles/fabx3/metal_normal.ini
+A	usr/share/cura/resources/quickprint/profiles/fabx3/pla_high.ini
+A	usr/share/cura/resources/quickprint/profiles/fabx3/pla_low.ini
+A	usr/share/cura/resources/quickprint/profiles/fabx3/pla_normal.ini
+A	usr/share/cura/resources/quickprint/profiles/fabx3/wood_high.ini
+A	usr/share/cura/resources/quickprint/profiles/fabx3/wood_low.ini
+A	usr/share/cura/resources/quickprint/profiles/fabx3/wood_normal.ini
 A	usr/share/cura/resources/quickprint/profiles/fabxpro/abs_high.ini
 A	usr/share/cura/resources/quickprint/profiles/fabxpro/abs_low.ini
 A	usr/share/cura/resources/quickprint/profiles/fabxpro/abs_normal.ini
