@@ -5,7 +5,7 @@ import os
 import webbrowser
 import sys
 
-
+from Cura.gui import printWindow
 from Cura.gui import configBase
 from Cura.gui import expertConfig
 from Cura.gui import alterationPanel
@@ -23,6 +23,9 @@ from Cura.gui.tools import pidDebugger
 from Cura.gui.tools import minecraftImport
 from Cura.util import profile
 from Cura.util import version
+from Cura.util.printerConnection import printerConnectionManager
+from Cura.util import pluginInfo
+
 import platform
 from Cura.util import meshLoader
 
@@ -189,6 +192,10 @@ class mainWindow(wx.Frame):
 		self.headOffsetWizardMenuItem = expertMenu.Append(-1, _("Run head offset wizard..."))
 		self.Bind(wx.EVT_MENU, self.OnHeadOffsetWizard, self.headOffsetWizardMenuItem)
 
+		#MAX : Run Printer control wizard
+		self.runPrinterControlWizardMenuItem = expertMenu.Append(wx.NewId(), _("Run Printer Control wizard..."))
+		self.Bind(wx.EVT_MENU, self.OnPrinterControlWizard, self.runPrinterControlWizardMenuItem)
+
 		self.menubar.Append(expertMenu, _("Expert"))
 
 		helpMenu = wx.Menu()
@@ -298,6 +305,14 @@ class mainWindow(wx.Frame):
 
 		if pluginCount > 1:
 			self.scene.notification.message("Warning: %i plugins from the previous session are still active." % pluginCount)
+
+		self._printerConnectionManager = printerConnectionManager.PrinterConnectionManager()
+
+		if(self.isSerialConnectionAvailable()):
+			self.runPrinterControlWizardMenuItem.Enable(True)
+		else:
+			self.runPrinterControlWizardMenuItem.Enable(False)
+
 
 	def onPluginUpdate(self,msg): #receives commands from the plugin thread
 		cmd = str(msg.data).split(";")
@@ -615,6 +630,56 @@ class mainWindow(wx.Frame):
 
 	def OnHeadOffsetWizard(self, e):
 		configWizard.headOffsetWizard()
+
+	def isSerialConnectionAvailable(self):
+		"""
+			Checks whether a serial connection exists
+			Author : PraveenMax
+		:return: bool
+		"""
+		print "Checking for serial comm"
+		communicationGroup = self._printerConnectionManager.getAvailableGroup()
+
+		if communicationGroup is not None:
+			if( len( communicationGroup.getAvailableConnections() ) > 0 ):
+				print "Serial comm available"
+				return True
+			else:
+				print "No Serial comm available"
+				return False
+		else:
+			print "No Serial comm found"
+			return False
+
+
+
+	def OnPrinterControlWizard(self, e):
+		connectionGroup = self._printerConnectionManager.getAvailableGroup()
+		connection = None
+
+		#Select a serial connection
+		if connectionGroup is not None:
+			connections = connectionGroup.getAvailableConnections()
+			connection = connections[0]
+
+		if connection is not None:
+			#Select the pronterface plugin dir fullpath and run it
+			for p in pluginInfo.getPluginList('printwindow'):
+				if p.getName() == "Pronterface UI":
+					connection.window = printWindow.printWindowPlugin(self, connection, p.getFullFilename())
+					break
+				else:
+					print "MAX : Unable to open pronterface"
+			connection.window.Show()
+			connection.window.Raise()
+		else:
+			print "MAX : A serial comm to 3D printer is needed to proceed"
+
+		#if not connection.loadGCodeData(self._engine.getResult().getGCode()):
+		#	if connection.isPrinting():
+		#		self.notification.message("Cannot start print, because other print still running.")
+		#	else:
+		#		self.notification.message("Failed to start print...")
 
 	def OnExpertOpen(self, e):
 		ecw = expertConfig.expertConfigWindow(lambda : self.scene.sceneUpdated())
