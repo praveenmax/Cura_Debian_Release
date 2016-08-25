@@ -308,12 +308,6 @@ class mainWindow(wx.Frame):
 
 		self._printerConnectionManager = printerConnectionManager.PrinterConnectionManager()
 
-		if(self.isSerialConnectionAvailable()):
-			self.runPrinterControlWizardMenuItem.Enable(True)
-		else:
-			self.runPrinterControlWizardMenuItem.Enable(False)
-
-
 	def onPluginUpdate(self,msg): #receives commands from the plugin thread
 		cmd = str(msg.data).split(";")
 		if cmd[0] == "OpenPluginProgressWindow":
@@ -669,10 +663,11 @@ class mainWindow(wx.Frame):
 					connection.window = printWindow.printWindowPlugin(self, connection, p.getFullFilename())
 					break
 				else:
-					print "MAX : Unable to open pronterface"
+					print "REDD : Pronterface plugin is missing"
 			connection.window.Show()
 			connection.window.Raise()
 		else:
+			wx.MessageBox("Please connect a 3D printer to open Printer Control wizard","3D Printer not found",wx.OK | wx.ICON_ERROR)
 			print "MAX : A serial comm to 3D printer is needed to proceed"
 
 		#if not connection.loadGCodeData(self._engine.getResult().getGCode()):
