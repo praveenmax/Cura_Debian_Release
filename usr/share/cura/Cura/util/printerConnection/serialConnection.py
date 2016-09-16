@@ -87,6 +87,11 @@ class serialConnection(printerConnectionBase.printerConnectionBase):
 
 	#Start printing the previously loaded file
 	def startPrint(self):
+
+		isPrinting = self.isPrinting()
+		gCodeLength = len(self._gcodeData)
+		processRunning = False if self._process is None else True
+		print "Print self-test : [isPrinting, GCode_Length, noProcess]:", isPrinting, ", ", gCodeLength, ", ", processRunning, " ]"
 		if self.isPrinting() or len(self._gcodeData) < 1 or self._process is None:
 			return
 		self._process.stdin.write('STOP\n')
