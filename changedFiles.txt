@@ -1,4 +1,4 @@
-Wed Aug 17 13:28:36 IST 2016
+Fri Sep 16 15:27:37 IST 2016
 A	.gitignore
 A	.idea/Cura_Debian_Release.iml
 A	.idea/encodings.xml
@@ -18,9 +18,13 @@ A	usr/share/cura/Cura/gui/contactSupportWindow.py
 M	usr/share/cura/Cura/gui/mainWindow.py
 M	usr/share/cura/Cura/gui/preferencesDialog.py
 M	usr/share/cura/Cura/gui/simpleMode.py
+M	usr/share/cura/Cura/util/printerConnection/serialConnection.py
 M	usr/share/cura/Cura/util/profile.py
 M	usr/share/cura/Cura/util/resources.py
 M	usr/share/cura/Cura/util/version.py
+A	usr/share/cura/plugins/PronterfaceUI_mod/image.png
+A	usr/share/cura/plugins/PronterfaceUI_mod/map.png
+A	usr/share/cura/plugins/PronterfaceUI_mod/script.py
 M	usr/share/cura/resources/images/splash.png
 D	usr/share/cura/resources/machine_profiles/BFB.ini
 D	usr/share/cura/resources/machine_profiles/DeltaBot.ini
