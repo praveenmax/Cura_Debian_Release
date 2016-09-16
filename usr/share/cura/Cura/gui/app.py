@@ -20,7 +20,8 @@ class CuraApp(wx.App):
 			from Cura.util import profile
 			super(CuraApp, self).__init__(redirect=True, filename=os.path.join(profile.getBasePath(), 'output_log.txt'))
 		else:
-			super(CuraApp, self).__init__(redirect=False)
+			super(CuraApp, self).__init__(redirect=True)
+			print "This is Linux"
 
 		self.mainWindow = None
 		self.splash = None
